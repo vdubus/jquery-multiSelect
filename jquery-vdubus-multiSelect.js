@@ -46,7 +46,7 @@
 			}
 			this._elementName = this.element.prop("name");
 			this._select = this.element.clone();
-			this._select.removeAttr("multiple").removeAttr("name");
+			this._select.removeAttr("multiple").removeAttr("name").removeAttr("id");
 			this._container = $("<span />").addClass("vdubus-multiSelect").append(this._select);
 			this.element.addClass("vdubus-multiSelect-hidden").after(this._container);
 
