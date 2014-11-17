@@ -7,8 +7,8 @@
  resources:
    - http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js
    - http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css
-   - https://raw.githubusercontent.com/vdubus/jquery-multiSelect/master/jquery-multiSelect.css
-   - https://raw.githubusercontent.com/vdubus/jquery-multiSelect/master/jquery-multiSelect.js
+   - https://rawgit.com/vdubus/jquery-multiSelect/master/jquery-multiSelect.css
+   - https://rawgit.com/vdubus/jquery-multiSelect/master/jquery-multiSelect.js
  normalize_css: no
 ...
 
