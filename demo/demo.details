@@ -1,4 +1,4 @@
-   - http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+
 ---
  name: Demo jquery-multiSelect
  description: Some description, please keep it in one line
@@ -7,9 +7,9 @@
  resources:
    - http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js
    - http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css
-   - ../jquery-multiSelect.css
-   - ../jquery-multiSelect.js
+   - https://raw.githubusercontent.com/vdubus/jquery-multiSelect/master/jquery-multiSelect.css
+   - https://raw.githubusercontent.com/vdubus/jquery-multiSelect/master/jquery-multiSelect.js
  normalize_css: no
- ...
+...
 
- http://jsfiddle.net/gh/get/jquery/1.11/vdubus/jquery-multiSelect/tree/master/demo
+http://jsfiddle.net/gh/get/jquery/1.11/vdubus/jquery-multiSelect/tree/master/demo
