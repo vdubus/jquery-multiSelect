@@ -1,0 +1,11 @@
+
+---
+ name: Demo jquery-multiSelect
+ description: Some description, please keep it in one line
+ authors:
+   - Vianney DUBUS
+ resources:
+   - ../jquery-multiSelect.css
+   - ../jquery-multiSelect.js
+ normalize_css: no
+ ...
