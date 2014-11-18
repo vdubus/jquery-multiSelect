@@ -8,9 +8,6 @@ span.vdubus-multiSelect {
 
 span.vdubus-multiSelect>select {
 	min-width: 10em;
-}
-
-span.vdubus-multiSelect>select {
 	display: inline-block;
 }
 
@@ -26,5 +23,6 @@ span.vdubus-multiSelect>span.vdubus-multiSelect-value>span.vdubus-multiSelect-va
 
 span.vdubus-multiSelect-value-text {
 	display: inline-block;
-	width: 10em;
+	min-width: 10em;
+	width: calc(100% - 1em - 16px);
 }
