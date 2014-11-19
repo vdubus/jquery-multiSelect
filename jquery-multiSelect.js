@@ -73,9 +73,14 @@
 
 			// Manage the currents selected values.
 			this._manageSelectedValue();
-			
+
 			// Remove unneeded attributes once we have synchronized our component.
 			this._select.removeAttr("multiple").removeAttr("name").removeAttr("id");
+			
+			if (this.options.enableChangeMode) {
+				// For Chrome compatibility, once we have manage the current selected value, we must select the first one.
+				this._select.find("option:first").prop("selected", true);
+			}
 		},
 
 		/**
