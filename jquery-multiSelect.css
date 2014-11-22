@@ -6,16 +6,24 @@ span.vdubus-multiSelect {
 	display: inline-block;
 }
 
-span.vdubus-multiSelect>select {
+span.vdubus-multiSelect-selectContainer {
+	display: block;
+}
+
+span.vdubus-multiSelect-spanContainer {
+	display: block;
+}
+
+span.vdubus-multiSelect select {
 	min-width: 10em;
 	display: inline-block;
 }
 
-span.vdubus-multiSelect>span.vdubus-multiSelect-value {
+span.vdubus-multiSelect-value {
 	display: block;
 }
 
-span.vdubus-multiSelect>span.vdubus-multiSelect-value>span.vdubus-multiSelect-value-delete {
+span.vdubus-multiSelect-value-delete {
 	display: inline-block;
 	cursor: pointer;
 	margin-left: 1em;
