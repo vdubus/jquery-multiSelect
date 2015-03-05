@@ -50,7 +50,7 @@
 				return;
 			}
 			this._elementName = this.element.prop("name");
-			this._select = this.element.clone();
+			this._select = $("<select />");
 			var selectContainer = $("<span />").addClass("vdubus-multiSelect-selectContainer").append(this._select);
 			this._spanContainer = $("<span />").addClass("vdubus-multiSelect-spanContainer");
 			this._container = $("<span />").addClass("vdubus-multiSelect").append(selectContainer).append(this._spanContainer);
@@ -61,12 +61,6 @@
 			});
 			if (this.options.enableChangeMode) {
 				// We must manage the empty option.
-				var emptyOption = $("<option />").addClass("vdubus-multiSelect-emptyOption").attr("value", "").data("index", -1);
-				if (this.options.emptyOptionLabel) {
-					// If a label is available, then we use it.
-					emptyOption.text(this.options.emptyOptionLabel);
-				}
-				emptyOption.prependTo(this._select);
 				this._on(this._select, {
 					"change" : this._manageSelectedValue
 				});
@@ -78,19 +72,8 @@
 				});
 			}
 
-			// Each option should have an index in function of their position in the select.
-			var index = 0;
-			var options = this._select.find("option");
-			for (; index < options.length; index++) {
-				var tmpOpt = $(options[index]);
-				tmpOpt.data("index", index);
-			}
-
-			// Manage the currents selected values.
-			this._manageSelectedValue();
-
-			// Remove unneeded attributes once we have synchronized our component.
-			this._select.removeAttr("multiple").removeAttr("name").removeAttr("id");
+			// Initialize the content of the new select element.
+			this._initializeMultiSelect();
 
 			if (this.options.enableChangeMode) {
 				// For Chrome compatibility, once we have manage the current selected value, we must select the first one.
@@ -101,7 +84,8 @@
 		/**
 		 * Action to do on delete value action.
 		 * 
-		 * @param {Event} event : event object.
+		 * @param {Event}
+		 *            event : event object.
 		 */
 		_deleteSelectedValue : function(event) {
 			event.preventDefault();
@@ -111,14 +95,15 @@
 		/**
 		 * Move a selected value back to the select.
 		 * 
-		 * @param {jQuery} spanValue : the value to move back.
+		 * @param {jQuery}
+		 *            spanValue : the value to move back.
 		 */
 		_moveBackValue : function(spanValue) {
 			var value = spanValue.data("value");
 			var optToInsert = $("<option />").attr("value", value).text(spanValue.find("span.vdubus-multiSelect-value-text").text()).data("index", spanValue.data("index"));
 			this._insertElementInOrder(optToInsert, this._select, "option");
 			this.element.find("option[value='" + value + "']").prop("selected", false).trigger("change");
-			
+
 			// We must remove the element after we getting the data on it because the remove function delete them.
 			spanValue.remove();
 		},
@@ -126,7 +111,8 @@
 		/**
 		 * Action executed on the click of the add button.
 		 * 
-		 * @param {Event} event : the event object.
+		 * @param {Event}
+		 *            event : the event object.
 		 */
 		_addButtonClick : function(event) {
 			event.preventDefault();
@@ -159,9 +145,12 @@
 		/**
 		 * Insert an element in the order specified by data("index") into another element.
 		 * 
-		 * @param {jQuery} elementToInsert : the element to insert.
-		 * @param {jQuery} elementForInsert : the element for the insert.
-		 * @param {String} selector : the selector to find elements for insertion.
+		 * @param {jQuery}
+		 *            elementToInsert : the element to insert.
+		 * @param {jQuery}
+		 *            elementForInsert : the element for the insert.
+		 * @param {String}
+		 *            selector : the selector to find elements for insertion.
 		 */
 		_insertElementInOrder : function(elementToInsert, elementForInsert, selector) {
 			var elements = elementForInsert.find(selector);
@@ -190,6 +179,49 @@
 					elementToInsert.appendTo(elementForInsert);
 				}
 			}
+		},
+
+		_initializeMultiSelect : function() {
+			// Add the multiple attribute to allow us to update the content of the new select element.
+			this._select.attr("multiple", "multiple");
+
+			if (this.options.enableChangeMode) {
+				// We must manage the empty option.
+				var emptyOption = $("<option />").addClass("vdubus-multiSelect-emptyOption").attr("value", "").data("index", -1);
+				if (this.options.emptyOptionLabel) {
+					// If a label is available, then we use it.
+					emptyOption.text(this.options.emptyOptionLabel);
+				}
+				emptyOption.prependTo(this._select);
+			}
+
+			// Add all options in our select.
+			this.element.find("option").clone().appendTo(this._select);
+			this._select.val(this.element.val());
+
+			// Each option should have an index in function of their position in the select.
+			var index = 0;
+			var options = this._select.find("option");
+			for (; index < options.length; index++) {
+				var tmpOpt = $(options[index]);
+				tmpOpt.data("index", index);
+			}
+
+			// Manage the currents selected values.
+			this._manageSelectedValue();
+
+			// Remove multiple attribute to match the behavior expected.
+			this._select.removeAttr("multiple");
+		},
+
+		/**
+		 * Allow us to refresh the component?
+		 */
+		refresh : function() {
+			// this._container.empty();
+			this._select.empty();
+			this._spanContainer.empty();
+			this._initializeMultiSelect();
 		},
 
 		/**
