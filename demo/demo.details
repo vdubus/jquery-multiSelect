@@ -5,11 +5,10 @@
  authors:
    - Vianney DUBUS
  resources:
-   - http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js
+   - https://rawgit.com/vdubus/jquery-multiSelect/master/jquery-multiSelect.js
    - http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css
    - https://rawgit.com/vdubus/jquery-multiSelect/master/jquery-multiSelect.css
-   - https://rawgit.com/vdubus/jquery-multiSelect/master/jquery-multiSelect.js
  normalize_css: no
 ...
 
-http://jsfiddle.net/gh/get/jquery/1.11/vdubus/jquery-multiSelect/tree/master/demo
+http://jsfiddle.net/gh/get/jquery/1.11/dependencies/ui/vdubus/jquery-multiSelect/tree/master/demo
