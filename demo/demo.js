@@ -3,11 +3,15 @@
 	function initialization() {
 
 		var multiSelect = $("#multiSelect").on("change", function() {
-			console.log("change detected");
+			if (console && console.log) {
+				console.log("change detected");
+			}
 		}).multiSelect();
 
 		var multiSelect2 = $("#multiSelect2").on("change", function() {
-			console.log("change detected");
+			if (console && console.log) {
+				console.log("change detected");
+			}
 		}).multiSelect({
 			enableChangeMode : true,
 			emptyOptionLabel : "no value"
@@ -16,26 +20,25 @@
 		// This button must destroy the first multiselect component.
 		$("#destroyMultiSelect").on("click", function(event) {
 			event.preventDefault();
-			if(multiSelect.data("vdubus-multiSelect")){
+			if (multiSelect.data("vdubus-multiSelect")) {
 				multiSelect.multiSelect("destroy");
 			}
-			if(multiSelect2.data("vdubus-multiSelect")){
+			if (multiSelect2.data("vdubus-multiSelect")) {
 				multiSelect2.multiSelect("destroy");
 			}
 		});
 		$("#createMultiSelect").on("click", function(event) {
 			event.preventDefault();
-			if(!multiSelect.data("vdubus-multiSelect")){
+			if (!multiSelect.data("vdubus-multiSelect")) {
 				multiSelect.multiSelect();
 			}
-			if(!multiSelect2.data("vdubus-multiSelect")){
+			if (!multiSelect2.data("vdubus-multiSelect")) {
 				multiSelect2.multiSelect({
 					enableChangeMode : true,
 					emptyOptionLabel : "no value"
 				});
 			}
 		});
-		
 
 		// This button will update the available options in the select.
 		$("#addValueInMultiSelect").on("click", function(event) {
@@ -59,7 +62,9 @@
 			event.preventDefault();
 			var message = "MultiSelect 1 = " + multiSelect.val();
 			message += "\nMultiSelect 2 = " + multiSelect2.val();
-			console.log(message);
+			if (console && console.log) {
+				console.log(message);
+			}
 			alert(message);
 		});
 	}
