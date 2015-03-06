@@ -123,7 +123,7 @@
 		 * Manage the current selected values to display them under the select.
 		 */
 		_manageSelectedValue : function() {
-			var selectedOptions = this._select.find("option").filter(":selected");
+			var selectedOptions = this._select.find("option").filter(":selected:not([value=''])");
 			var index = 0;
 			for (; index < selectedOptions.length; index++) {
 				var option = $(selectedOptions[index]);
