@@ -3,7 +3,12 @@ jquery-multiSelect
 
 A jquery plugin to manage multi-select in a more design way.
 
-Example available at : [JSFiddle](http://jsfiddle.net/gh/get/jquery/1.11/vdubus/jquery-multiSelect/tree/master/demo "jquery-multiSelect demo")
+Example available at : [JSFiddle](http://jsfiddle.net/gh/get/jquery/1.8.3/dependencies/ui/vdubus/jquery-multiSelect/tree/master/demo "jquery-multiSelect demo")
+
+Dependencies :
+--------------
+* jQuery 1.8+
+* jQuery-UI 1.9+
 
 Available Options :
 -------------------
