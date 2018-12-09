@@ -5,8 +5,8 @@
  authors:
    - Vianney DUBUS
  resources:
-   - https://rawgit.com/vdubus/jquery-multiSelect/master/jquery-multiSelect.js
-   - https://rawgit.com/vdubus/jquery-multiSelect/master/jquery-multiSelect.css
+   - https://cdn.jsdelivr.net/gh/vdubus/jquery-multiSelect@master/jquery-multiSelect.js
+   - https://cdn.jsdelivr.net/gh/vdubus/jquery-multiSelect@master/jquery-multiSelect.css
  normalize_css: no
 ...
 
